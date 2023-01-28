@@ -1,0 +1,13 @@
+const columnDefs = [
+    { field: 'country', sortable: true },
+    { field: 'year', sortable: true },
+    { field: 'sport' },
+];
+
+<AgGridReact columnDefs={columnDefs}></AgGridReact>
+const pagination = true;
+
+// sets 10 rows per page (default is 100)
+const paginationPageSize = 10;
+
+<AgGridReact pagination={pagination} paginationPageSize={paginationPageSize}></AgGridReact>
