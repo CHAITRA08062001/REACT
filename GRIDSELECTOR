@@ -1,0 +1,34 @@
+getServerSideGroupLevelParams = (
+    params: GetServerSideGroupLevelParamsParams
+) => ServerSideGroupLevelParams;
+
+interface GetServerSideGroupLevelParamsParams {
+  // The level of the store. Top level is 0. 
+  level: number;
+  // The Row Node for the group that got expanded, or undefined if top level (ie no parent) 
+  parentRowNode?: IRowNode;
+  // Active Row Group Columns, if any. 
+  rowGroupColumns: Column[];
+  // Active Pivot Columns, if any. 
+  pivotColumns: Column[];
+  // true if pivot mode is active. 
+  pivotMode: boolean;
+  // The grid api. 
+  api: GridApi<any>;
+  // The column api. 
+  columnApi: ColumnApi;
+  // Application context as set on `gridOptions.context`. 
+  context: any;
+}
+
+interface ServerSideGroupLevelParams {
+  // Whether to have infinite scroll active or not for the level.
+  suppressInfiniteScroll?: boolean;
+  // For Infinite Scroll only.
+  // How many blocks to keep in cache.
+  // If missing, defaults to grid options `maxBlocksInCache`.
+  maxBlocksInCache?: number;
+  // For Infinite Scroll only.
+  // Cache block size.
+  // If missing, defaults to grid options `cacheBlockSize`.
+  cacheBlockSize?: number;
