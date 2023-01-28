@@ -1,0 +1,25 @@
+isServerSideGroupOpenByDefault = (
+    params: IsServerSideGroupOpenByDefaultParams
+) => boolean;
+
+interface IsServerSideGroupOpenByDefaultParams {
+  data: any;
+  rowNode: IRowNode;
+  // The grid api. 
+  api: GridApi<any>;
+  // The column api. 
+  columnApi: ColumnApi;
+  // Application context as set on `gridOptions.context`. 
+  context: any;
+}const columnDefs = [
+    // sets the 'text' filter
+    { field: 'country', filter: 'agTextColumnFilter' },
+
+    // use the default 'set' filter
+    { field: 'year', filter: true },
+
+    // no filter (unspecified)
+    { field: 'sport' },
+];
+
+<AgGridReact columnDefs={columnDefs}></AgGridReact>
